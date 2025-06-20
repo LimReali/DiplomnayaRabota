@@ -1,0 +1,149 @@
+/* AdminSidebar.css */
+
+/* Сброс стилей */
+* {
+    box-sizing: border-box;
+  }
+  body, html {
+    margin: 0; padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9fafb;
+    color: #333;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Контейнер */
+  .container {
+    display: flex;
+    height: 100vh;
+    transition: all 0.3s ease;
+  }
+  
+  /* Боковая панель */
+  nav.sidebar {
+    width: 260px;
+    background-color: #34495e;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    transition: width 0.3s ease;
+  }
+  nav.sidebar.collapsed {
+    width: 60px;
+  }
+  
+  nav.sidebar h2 {
+    margin: 0 0 30px;
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+    user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  nav.sidebar.collapsed h2 {
+    font-size: 0;
+    margin-bottom: 0;
+    height: 0;
+  }
+  
+  nav.sidebar a, nav.sidebar form button {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  nav.sidebar.collapsed a,
+  nav.sidebar.collapsed form button {
+    padding-left: 12px;
+    text-align: center;
+    font-size: 0;
+  }
+  nav.sidebar a:hover,
+  nav.sidebar form button:hover {
+    background-color: #2c3e50;
+    text-decoration: none;
+  }
+  nav.sidebar form {
+    margin-top: auto;
+  }
+  
+  /* Кнопка сворачивания */
+  button.toggle-btn {
+    background-color: #2c3e50;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    user-select: none;
+    transition: background-color 0.3s ease;
+  }
+  button.toggle-btn:hover {
+    background-color: #1a242f;
+  }
+  nav.sidebar.collapsed button.toggle-btn {
+    font-size: 0;
+    padding: 8px 0;
+  }
+  
+  /* Основной контент */
+  main.content {
+    flex-grow: 1;
+    padding: 40px 30px;
+    overflow-y: auto;
+    background-color: #fff;
+    transition: margin-left 0.3s ease;
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+    nav.sidebar {
+      width: 100%;
+      height: auto;
+      padding: 10px;
+      box-shadow: none;
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+    }
+    nav.sidebar.collapsed {
+      width: 100%;
+    }
+    nav.sidebar a, nav.sidebar form button {
+      flex: 1 0 auto;
+      font-size: 14px;
+      padding: 10px 8px;
+      margin: 0 8px 0 0;
+      white-space: normal;
+      text-align: center;
+    }
+    nav.sidebar h2 {
+      display: none;
+    }
+    main.content {
+      padding: 20px 15px;
+    }
+  }
+  
